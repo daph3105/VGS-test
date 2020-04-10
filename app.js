@@ -14,16 +14,10 @@ const tunnel = require('tunnel');
 
 app.use(bodyParser.json());
 
-
-const corsOptions = {
-  origin: true,
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  credentials: true,
-  preflightContinue: true,
-  maxAge: 600,
-};
-app.options('*', cors(corsOptions));
-app.use(cors(corsOptions));
+app.use(function (req, res, next) {
+  res.setHeader('Access-Control-Allow-Origin', 'https://daph3105.github.io');
+  next();
+});
 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
