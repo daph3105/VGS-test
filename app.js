@@ -15,12 +15,15 @@ const tunnel = require('tunnel');
 app.use(bodyParser.json());
 
 
-let allowCrossDomain = function(req, res, next) {
-  res.header('Access-Control-Allow-Origin', "*");
-  res.header('Access-Control-Allow-Headers', "*");
-  next();
-}
-app.use(allowCrossDomain);
+const corsOptions = {
+  origin: true,
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true,
+  preflightContinue: true,
+  maxAge: 600,
+};
+app.options('*', cors(corsOptions));
+app.use(cors(corsOptions));
 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
