@@ -49,7 +49,7 @@
     document.getElementById("reveal-btn").onclick = function(e) {
         e.preventDefault(); 
         console.log(encrypted)
-        fetch('https://vgs-app.herokuapp.com/', {
+        fetch('https://vgs-app.herokuapp.com/post', {
         method: 'POST', 
         headers: {
             'Content-Type': 'application/json',
