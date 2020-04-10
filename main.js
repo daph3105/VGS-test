@@ -49,7 +49,8 @@ document.getElementById('cc-form').addEventListener('submit', function(e) {
   document.getElementById("reveal-btn").onclick = function(e) {
       e.preventDefault(); 
       console.log(encrypted)
-      fetch('https://vgs-app.herokuapp.com/post', {
+      const proxyurl = "https://cors-anywhere.herokuapp.com/";
+      fetch(proxyurl+'https://vgs-app.herokuapp.com/post', {
       method: 'POST', 
       headers: {
           'Content-Type': 'application/json',
