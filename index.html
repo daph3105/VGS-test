@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>VGS Credit Card </title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="./style.css">
+        <script type="text/javascript" src="https://js.verygoodvault.com/vgs-collect/1/ACqnzVTLPNCHZsWhYyf8AKCz.js"></script>
+    </head>
+    <body>
+        <main>
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-4">
+                    <div class="row card card-outline-secondary">
+                        <div class="card-body">
+                            <h3 class="text-center">Please, enter the card to be redacted</h3>
+                            <hr>
+                            <form id="cc-form">
+                                <div class="form-group">
+                                    <label for="cc-number">Card number:</label>
+                                    <span id="cc-number" class="form-field">
+                                    </span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cc-cvv">CVV:</label>
+                                    <span id="cc-cvv" class="form-field">
+                                    </span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="cc-expiration-date">Expiration date:</label>
+                                    <span id="cc-expiration-date" class="form-field">
+                                    </span>
+                                </div>
+                                <button type="submit" class="btn btn-success btn-block">Redact data</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" >
+                    <div id="redact">
+                        <div class="alert alert-warning">
+                            <h5 class="text-center">Redacted Data</h5>
+                            <pre id="result">
+                            </pre>
+                        </div>
+                        <form method="post">
+                            <button type="submit" class="btn btn-success btn-block" id="reveal-btn">Reveal data</button>
+                        </form>
+                        <div class="alert alert-warning" id="reveal-box">
+                            <h5 class="text-center">Revealed Data</h5>
+                            <pre id="revealed">
+                            </pre>
+                        </div>
+                        
+                    </div>                   
+                </div>
+
+            </div>
+        </main>
+        <script src="./main.js"></script>
+    </body>
+</html>
