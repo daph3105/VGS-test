@@ -14,16 +14,13 @@ const tunnel = require('tunnel');
 
 app.use(bodyParser.json());
 
-app.all('*', function(req, res, next) {
-  res.header('Access-Control-Allow-Origin', 'https://daph3105.github.io/VGS-test/');
-  res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-  res.header('Access-Control-Allow-Headers', 'Content-Type');
-  if ('OPTIONS' == req.method) {
-  res.sendStatus(200);
-  } else {
-    next();
-  }
-});
+
+app.use(cors({
+  credentials: true,
+  origin: ['https://daph3105.github.io/']
+}));
+
+
 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 

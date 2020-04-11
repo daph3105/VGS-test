@@ -51,7 +51,7 @@ document.getElementById('cc-form').addEventListener('submit', function(e) {
       console.log(encrypted)
       fetch('https://vgs-app.herokuapp.com/post', 
       {method: 'POST', headers: {'Content-Type': 'application/json',},
-      body: JSON.stringify(encrypted),}, {withCredentials:true})
+      body: JSON.stringify(encrypted),}, {withCredentials:true}, {withCredentials: true})
       .then((response) => response.json())
       .then((data) => {
         console.log('Success:', data);
