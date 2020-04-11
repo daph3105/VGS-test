@@ -48,7 +48,7 @@ document.getElementById('cc-form').addEventListener('submit', function(e) {
 
   document.getElementById("reveal-btn").onclick = function(e) {
       e.preventDefault(); 
-      fetch('https://cb55839b.ngrok.io/post', 
+      fetch('http://044fc6d0.ngrok.io/post', 
       {method: 'POST', headers: {'Content-Type': 'application/json',},
       body: JSON.stringify(encrypted),}, {withCredentials:true}, {withCredentials: false})
       .then((response) => response.json())
