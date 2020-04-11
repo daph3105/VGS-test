@@ -5,7 +5,6 @@ var cors = require('cors');
 
 //Dotenv middle-ware to load variables from .env file.
 require('dotenv').config();
-
 const port = process.env.PORT || 5000;
 
 //VGS credentials from .env file
@@ -30,7 +29,10 @@ app.all('*', function(req, res, next) {
   res.sendStatus(200);
   } else {
     next();
+  }
+});
 //---------------------
+
 
 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
@@ -46,9 +48,11 @@ const tunnelingAgent = tunnel.httpsOverHttp({
 });
 
 
+
 app.get('/', (req, res) => res.send('Outbound server'))
 
-//Sending outbound request to vgs echo server 
+
+//Sending outbound request to vgs echo server
 app.post('/post', function (req, res) {
 request({
     url: 'https://echo.apps.verygood.systems/post',
