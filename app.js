@@ -17,7 +17,7 @@ app.use(bodyParser.json());
 
 app.use(cors({
   credentials: true,
-  origin: ['https://daph3105.github.io/']
+  origin: ['*']
 }));
 
 
