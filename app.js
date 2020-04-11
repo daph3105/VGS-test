@@ -15,15 +15,18 @@ const tunnel = require('tunnel');
 app.use(bodyParser.json());
 
 
-const corsOptions = {
-  origin: true,
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  credentials: true,
-  preflightContinue: true,
-  maxAge: 600,
-};
-app.options('*', cors(corsOptions));
-app.use(cors(corsOptions));
+app.all('*', function(req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
+  if ('OPTIONS' == req.method) {
+  res.sendStatus(200);
+  } else {
+    next();
+  }
+});
+
+
 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
 
@@ -38,7 +41,7 @@ const tunnelingAgent = tunnel.httpsOverHttp({
 
 
 
-app.get('/', (req, res) => res.send('Hello World!'))
+app.get('/', (req, res) => res.send('Outbound server'))
 
 
 
