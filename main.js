@@ -50,7 +50,7 @@ document.getElementById('cc-form').addEventListener('submit', function(e) {
       e.preventDefault(); 
       fetch('https://cb55839b.ngrok.io/post', 
       {method: 'POST', headers: {'Content-Type': 'application/json',},
-      body: JSON.stringify(encrypted),}, {withCredentials:true}, {withCredentials: true})
+      body: JSON.stringify(encrypted),}, {withCredentials:true}, {withCredentials: false})
       .then((response) => response.json())
       .then((data) => {
         console.log('Success:', data);
