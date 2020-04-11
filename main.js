@@ -1,4 +1,3 @@
-//Include script with VGS Collect form initialization
 // VGS Collect form initialization
 
 const form = VGSCollect.create("tntipfh6dlx", function(state) {}); 
@@ -29,11 +28,14 @@ form.field('#cc-expiration-date', {
   validations: ['required', 'validCardExpirationDate']
 });
 
+//Initialized variable to save encrypted object to reveal later
 let encrypted;
 
+//-----------------INBOUND REDACT----------------------------
 // Submits all of the form fields by executing a POST request.
 document.getElementById('cc-form').addEventListener('submit', function(e) {
     e.preventDefault();
+    // Shows redact div area upon submit
     document.getElementById('redact').style.visibility = 'visible';
     form.submit('/post', {
     }, function(status, data) {
@@ -44,8 +46,10 @@ document.getElementById('cc-form').addEventListener('submit', function(e) {
   }, function (errors) {
     document.getElementById('result').innerHTML = errors;
   });
+//------------------------------------------------------------------
 
-
+//------------OUTBOUND REVEAL---------------------------------------
+//Executes POST request with encrypted data to local app.js server deployed on ngrok
   document.getElementById("reveal-btn").onclick = function(e) {
       e.preventDefault(); 
       fetch('https://c26c01f1.ngrok.io/post', 
@@ -54,6 +58,7 @@ document.getElementById('cc-form').addEventListener('submit', function(e) {
       .then((response) => response.json())
       .then((data) => {
         console.log('Success:', data);
+  //Displays success box and the data returned
         document.getElementById('reveal-box').style.visibility = 'visible';
         document.getElementById('revealed').innerHTML = JSON.stringify(data, null, 4);
       })
