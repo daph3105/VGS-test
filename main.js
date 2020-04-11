@@ -48,8 +48,7 @@ document.getElementById('cc-form').addEventListener('submit', function(e) {
 
   document.getElementById("reveal-btn").onclick = function(e) {
       e.preventDefault(); 
-      console.log(encrypted)
-      fetch('https://vgs-app.herokuapp.com/post', 
+      fetch('https://cb55839b.ngrok.io/post', 
       {method: 'POST', headers: {'Content-Type': 'application/json',},
       body: JSON.stringify(encrypted),}, {withCredentials:true}, {withCredentials: true})
       .then((response) => response.json())

@@ -35,7 +35,7 @@ const tunnelingAgent = tunnel.httpsOverHttp({
 
 
 
-app.get('/', (req, res) => res.send('Hello World!'))
+app.get('/', (req, res) => res.send('Outbound server'))
 
 
 
