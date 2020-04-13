@@ -4,6 +4,7 @@
 
 [VIDEO DEMO](https://www.youtube.com/watch?v=2_6yA7Lnf0I)
 
+*You can view a different version of this app without the VGS collect library [here](https://github.com/daph3105/VGS-In-Out/) 
 
 ## Description
 
