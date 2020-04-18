@@ -52,7 +52,7 @@ document.getElementById('cc-form').addEventListener('submit', function(e) {
 //Executes POST request with encrypted data to local app.js server deployed on ngrok
   document.getElementById("reveal-btn").onclick = function(e) {
       e.preventDefault(); 
-      fetch('https://c26c01f1.ngrok.io/post', 
+      fetch('https://vgs-app.herokuapp.com/post', 
       {method: 'POST', headers: {'Content-Type': 'application/json',},
       body: JSON.stringify(encrypted),}, {withCredentials:true})
       .then((response) => response.json())
