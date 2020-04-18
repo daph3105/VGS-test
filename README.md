@@ -15,7 +15,7 @@ Simple one-page application for entering credit card data using the [VGS platfor
 ## Technologies Used
 - This app was built using HTML, CSS, JavaScript, and VGS collect on the client side.
 - And Node.js with Express.js on the server side.
-- ngrok and GitHub Pages were used for deployment.
+- heroku and GitHub Pages were used for deployment.
 
 ## Clone or Download
 ```
